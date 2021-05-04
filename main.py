@@ -21,12 +21,11 @@ async def on_message(message):
         await message.channel.send('oli')
     
     if message.content.startswith('https://'):
-        tolerance + 1
+        tolerance=+1
+        print(tolerance)
+        print(message.content)
         if tolerance == LIMIT or tolerance > LIMIT:
             await message.channel.send('Tranqui, manito {0.user}'.format(message.author))
-
-
-
 
 
 client.run('TOKEN')
