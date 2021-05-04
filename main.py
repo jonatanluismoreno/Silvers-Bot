@@ -1,6 +1,10 @@
 import discord
+from discord import message
 
 client = discord.Client()
+
+tolerance = 0
+LIMIT = 2
 
 
 # Events
@@ -14,6 +18,16 @@ async def on_message(message):
         return
 
     if message.content.startswith('$hello'):
-        await message.channel.send('oli!')
+        await message.channel.send('oli')
+    
+    if message.content.startswith('https://'):
+        tolerance + 1
+        if tolerance == LIMIT or tolerance > LIMIT:
+            await message.channel.send('Tranqui, manito {0.user}'.format(message.author))
 
-client.run('TOKEN')
+
+
+
+
+client.run('ODM5MTYyMjU4NTc5NzgzNzcy.YJFowQ.vLshDBPQ_ejsDHHMbOZ671_Rt7w')
+
